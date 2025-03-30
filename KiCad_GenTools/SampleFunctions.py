@@ -1,8 +1,8 @@
 def AdditionFunction(inputA, inputB):
     return inputA + inputB
 
-def SubtractionFunction(inputA, inputB):
-    output = inputA - inputB
+def SubtractionFunction(inputC, inputD):
+    output = inputC - inputD
     return output
 
 
