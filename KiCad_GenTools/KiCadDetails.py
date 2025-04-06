@@ -54,3 +54,22 @@ class PopulateKiCadDetails:
                     returnName = 0
 
         return returnName
+
+    def outputStructure(self, funcName):
+        # Return all dict components of the function 'return'
+        functionSource = inspect.getsource(funcName)
+        tree = ast.parse(functionSource)
+
+        for node in ast.walk(tree):
+            # Traverse the called function (line by line)
+            if isinstance(node, ast.Assign):
+                # Looks for any assign operation in the function
+                # The function has to be formatted to have output dict assigned to 'output'
+                if (isinstance(node.targets[0], ast.Name) and
+                        node.targets[0].id == 'output' and
+                        isinstance(node.value, ast.Dict)):
+                    keys = []
+                    for key in node.value.keys:
+                        if isinstance(key, ast.Constant):  # Python 3.8+
+                            keys.append(key.value)
+                    return keys 

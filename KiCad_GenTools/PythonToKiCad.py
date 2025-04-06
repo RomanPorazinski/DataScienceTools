@@ -42,7 +42,8 @@ for name, func in inspect.getmembers(SampleFunctions, inspect.isfunction):
     returnFunctionName = DM.outputName(func)
     print(returnFunctionName)
 
-
+    test = DM.outputStructure(func)
+    print(test)
 
     # Populate other function-specific details for KICad gen
 
