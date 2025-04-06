@@ -45,6 +45,9 @@ for name, func in inspect.getmembers(SampleFunctions, inspect.isfunction):
     test = DM.outputStructure(func)
     print(test)
 
+    linkTest = DM.datasheetImport(func)
+    print(linkTest)
+
     # Populate other function-specific details for KICad gen
 
 
